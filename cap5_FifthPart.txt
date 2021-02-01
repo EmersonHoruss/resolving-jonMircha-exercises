@@ -1,0 +1,79 @@
+/*
+15) Programa una función para convertir números de base 
+binaria a decimal y viceversa, pe. miFuncion(100,2) 
+devolverá 4 base 10.
+*/
+// invert the orden of a string
+const invertir = string=> string.split('').reverse().join('')
+
+const repetir = number => 
+  Math.floor(number/10)>0 ? 
+      1 + repetir(Math.floor(number/10))
+      :0
+      
+const convertir10_n = (number, b) =>
+  Math.floor(number)>=b ? 
+    (number%b).toString() + convertir10_n(Math.floor(number/b),b)
+    : Math.floor(number).toString()
+
+const convertirN_10 = (number, b) => {
+  let converted=0, n = repetir(number);
+  
+  for(let i = 0; i<=n; i++){
+    i===n ?
+      converted+=number*Math.pow(2,i)
+      :converted+=number%10*Math.pow(2,i);
+    
+    number=Math.floor(number/10);
+  } 
+  return converted
+}
+
+// cast decimal base to binary and binary to decimal
+const convertir = (number, b)  => 
+  b !== 10 ?
+    invertir(convertir10_n(number, b))
+    :convertirN_10(number,b)
+      
+console.log(convertir(10,2));
+console.log(convertir(12,2));
+console.log(convertir(1010,10));
+console.log(convertir(1100,10));
+
+
+
+
+console.clear();
+/*
+16) Programa una función que devuelva el monto final 
+después de aplicar un descuento a una cantidad dada, pe. 
+miFuncion(1000, 20) devolverá 800.
+*/
+const montoFinal = (monto, porcentaje) => monto*(1-porcentaje/100)
+
+console.log(montoFinal(1000,20));
+console.log(montoFinal(1000,50));
+console.log(montoFinal(1000,10));
+
+
+
+
+console.clear();
+/*
+17) Programa una función que dada una fecha válida 
+determine cuantos años han pasado hasta el día de hoy, 
+pe. miFuncion(new Date(1984,4,23)) devolverá 35 años 
+(en 2020).
+*/
+const aniosPasados = date => 
+  Math.round(((new Date()).getTime()-(date.getTime()))/ (1000*60*60*24*365))
+// (1000*60*60*24) --> milisegundos -> segundos -> minutos -> horas -> días -> anios
+
+console.log(aniosPasados(new Date('2018-02-01')));
+console.log(aniosPasados(new Date('2017-02-01')));
+console.log(aniosPasados(new Date('2016-02-01')));
+
+
+
+
+
