@@ -1,0 +1,58 @@
+// This function help me to try other function as primo an par 
+const tryMe = (string, ownFunction, flag) => {
+    let valuesToTry = [1,2,3,4,5,6,7,8,9,10,73,74,79,80];
+
+    if(flag) 
+        valuesToTry.forEach(
+            value => console.log(`${value} ${string} ${ownFunction(value)}`));
+        
+}
+
+/*
+12) Programa una función que determine si un número es primo (aquel que solo es
+divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+*/
+const primo = number => {
+    for(let i = 2; i<number; i++)
+        if(number % i === 0) return false;
+        
+    return number !== 1 ? true : false;
+}
+
+
+tryMe('is prime number?', primo, false);
+
+
+
+
+
+/*
+13) Programa una función que determine si un número es par o impar, pe. 
+miFuncion(29) devolverá Impar.
+*/
+const par = number => number % 2 === 0 ? true : false
+
+tryMe('is par number?', par, true);
+
+
+
+
+
+/*
+14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, 
+pe. miFuncion(0,"C") devolverá 32°F.
+*/
+const castCF = (grade, cf) => 
+    cf.toUpperCase() === 'C' ?
+        (grade-32)*5/9 :
+        grade*9/5+32
+
+
+console.log(castCF(32,'c')) // 32F = 0C
+console.log(castCF(50,'C')) // 50F = 10C
+console.log(castCF(0,'f')) // 0C = 32F
+console.log(castCF(10,'F')) // 10C = 50F
+
+
+
+
