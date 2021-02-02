@@ -1,0 +1,52 @@
+/*
+21) Programa una función que dado un array numérico devuelve 
+otro array con los números elevados al cuadrado, pe. 
+mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+*/
+const cuadrado = array => array.map(e=>e*e)
+
+console.log(cuadrado([1,2,3]));
+console.log(cuadrado([4,5,6]));
+console.log(cuadrado([-7,-8,-9]));
+console.clear();
+
+
+
+
+
+/*
+22) Programa una función que dado un array devuelva el número 
+mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 
+5, 99, -60]) devolverá [99, -60].
+*/
+const mayorMenor = array => [
+  array.sort((a, b) => a - b)[array.length-1],
+  array.sort((a, b) => a - b)[0]
+]
+
+console.log(mayorMenor([1,4,5,99,-60]));
+console.log(mayorMenor([100,-99,53,-929,-60,-1,1]));
+console.log(mayorMenor([1134,-434,5,99,-6011]));
+console.clear();
+
+
+
+
+
+/*
+23) Programa una función que dado un array de números devuelva 
+un objeto con 2 arreglos en el primero almacena los números 
+pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,
+7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+*/
+const parImpar = array => ({
+  "pares": array.filter(e=>e%2===0),
+  "impares": array.filter(e=>e%2!==0)
+})
+
+console.log(parImpar([1,2,3,4,5,6,7,8,9,0]));
+console.log(parImpar([-1,-2,-3,-4,-5,-6,-7,-8,-9,-0]))
+
+
+
+

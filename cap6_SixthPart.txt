@@ -1,0 +1,60 @@
+/*
+18) Programa una función que dada una cadena de texto cuente el 
+número de vocales y consonantes, pe. miFuncion("Hola Mundo") 
+devuelva Vocales: 4, Consonantes: 5.
+*/
+const cont = string => ({
+  "vowels": string.match(/[aeiou]/ig).length,
+  "consonants": string.match(/[^(\saeiou\d)]/ig).length
+})
+
+console.log(cont('holaA mundo'));
+console.log(cont('you are the best programmer xd'));
+console.log(cont('aeiou    bcdfg'))
+
+
+
+
+
+/*
+19) Programa una función que valide que un texto sea un nombre 
+válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+*/
+const name = string => string.match(/([a-z]+\s?){4}/ig) === null ?
+      false 
+      :string.match(/([a-z]+\s?){4}/ig).toString() !== string ?
+        false
+        :true
+
+console.log(name('Emilio Escobar Gabilla'));
+console.log(name('Brendan Eich'));
+console.log(name('Guido Van Rossum'));
+console.log(name('asdfas@ asdf21')); //false because a name dosen't have numbers
+console.log(name('asdfas@')); // false because a name dosen't have a special character
+//console.clear();
+
+
+
+
+
+/*
+20) Programa una función que valide que un texto sea un 
+email válido, pe. miFuncion("jonmircha@gmail.com") 
+devolverá verdadero.
+*/
+const email = string => string.match(/[\w.-]+@[a-z]+\.[a-z]{2,5}/g) === null ?
+      false
+      :string.match(/[\w.-]+@[a-z]+\.[a-z]{2,5}/g).toString() !== string ?
+        false
+        :true
+
+console.log(email('lordHorus@hotmail.com'));
+console.log(email('lordHorus@outlook.es'));
+console.log(email('lordHorus@hotmail.123'));
+console.log(email('lordHorus@hotma123l.com'));
+console.log(email('lordH13orus@hotma123l.com'));
+//console.clear();
+
+
+
+
